@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Centro Académico Clínico dos Açores-CACA</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="javascript_javascript(javascript).js" defer></script>
+</head>
+
+<body>
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen">
+        <div id="threejs-logo-contentor"></div>
+    </div>
+
+    <div id="site-conteudo" class="site-escondido">
+    
+        <button onclick="scroll_to_top()" id = "Scroll_to_top">Top</button>
+
+<header>
+
+<!-- CABEÇALHO -->
+
+    <div class="header-container">
+        <div class="logotipo-mobile">
+            <img src="imagens/logotipo-mobile.png" alt="Logotipo CACA">
+        </div>
+        <div id= "logo" class="logotipo">
+            <img src="imagens/logotipo.png" alt="Logotipo CACA">
+        </div>
+        
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon">☰</label>
+      
+        <ul>
+            <li><a href="#Missao">Missão</a></li>
+            <li><a href="#Investigacao">Investigação</a></li>
+            <li><a href="#Parcerias">Parcerias</a></li>
+            <li><a href="#Oportunidades">Oportunidades</a></li>
+            <li><a href="#Contactos">Contactos</a></li>
+        </ul>
+    </div>
+</header>
+
+
+
+
+
+<!-- MISSÃO -->
+<div class="missao">
+    <div id="Missao"></div>
+    <h2>A nossa Missão</h2>
+    <p>Ser uma instituição académica com o intuito de apoiar a realização
+    de projetos locais, promovendo a inovação e rigor a fim de inspirar 
+    boa fé e confiança no setor medicinal e farmacêutico.</p>
+</div>
+
+<!-- OBJETIVO -->
+<div class="objetivo">
+    <h2>Objetivo</h2>
+    <p>Apoiar os seus associados e servir como ponto de referência para estes,
+        com um foco em instituições clínicas e académicas locais e em alunos
+        com interesse nestas áreas.</p>
+</div>
+
+<!-- INVESTIGAÇÃO -->
+
+<div id="Investigacao"></div>
+<h1>Formação e Ensino</h1>
+
+<div class="investigacao-main">
+
+    <div class="investigacao-contentor">
+        <img src="imagens/investigacao.png" alt="Coisa">
+        <p>14 novembro 2025 - 12 dezembro 2025</p>
+        <h2>Inteligência Artificial em Saúde</h2>
+        <p>Isto é uma descrição de exemplo, sendo esta uma notícia relacionada com um estudo feito pela UAC, nomeadamente a Faculdade de Ciências e Tecnologia.</p>
+        <button>Saber Mais</button>
+
+    </div>
+        <div class="investigacao-contentor">
+        <img src="imagens/investigacao.png" alt="Coisa">
+        <p>14 novembro 2025 - 12 dezembro 2025</p>
+        <h2>Inteligência Artificial em Saúde</h2>
+        <p>Isto é uma descrição de exemplo, sendo esta uma notícia relacionada com um estudo feito pela UAC, nomeadamente a Faculdade de Ciências e Tecnologia.</p>
+        <button>Saber Mais</button>
+
+    </div>
+        <div class="investigacao-contentor">
+        <img src="imagens/investigacao.png" alt="Coisa">
+        <p>14 novembro 2025 - 12 dezembro 2025</p>
+        <h2>Inteligência Artificial em Saúde</h2>
+        <p>Isto é uma descrição de exemplo, sendo esta uma notícia relacionada com um estudo feito pela UAC, nomeadamente a Faculdade de Ciências e Tecnologia.</p>
+        <button>Saber Mais</button>
+
+    </div>
+    
+    <!-- Grafico-->
+    <div id ="d3-contentor"></div>
+
+
+</div>
+
+
+
+<!-- PARCERIAS -->
+
+<div id="Parcerias"></div>
+<h1>Parcerias e Trabalho Desenvolvido</h1>
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 4</div>
+  <img src="imagens/uacbanner.png">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 4</div>
+  <img src="imagens/cufbanner.png">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 4</div>
+  <img src="imagens/dor_cronica.png">
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">4 / 4</div>
+  <img src="imagens/hospital.png">
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span>
+</div>
+
+<div class="conquistas">
+    <div  id="Oportunidades" ></div>
+    <h2>Em 2026, com a ajuda destes parceiros, o Centro Académico Clinico dos Açores:</h2>
+    <div class="grid">
+        <div class="item">
+            <h1>1.</h1>
+            <p>Apoiou mais de uma dezena de investigadores</p>
+        </div>
+
+        <div class="item">
+            <h1>2.</h1>
+            <p>Abriu €10000 em apoios em diversas áreas de investigação no arquipélago todo</p>
+        </div>
+
+        <div class="item">
+            <h1>3.</h1>
+            <p>Realizou 8 concursos de apoio à investigação</p>
+        </div>
+
+        <div class="item">
+            <h1>4.</h1>
+            <p>Garantiu a conclusão de 6 projetos regionais</p>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+    <div id="Contactos"></div>
+    <div class="footer-container">
+    <div class="contactos">
+        <h1>Contactos</h1>
+        <p>Email: 2acaca@uac.pt</p>
+        <p>Telefone: 250 620 910</p>
+        <p>Morada: Rua das Hortênsias Azuis 3 , 9520-509 Lagoa</p>
+    </div>
+    <div class="email">
+        <h1>Envie Um Email</h1>
+
+        <div id = "form" class="email-conteudo">
+            <div class="email-campos">
+                <input id = "nomeInput" type="text" placeholder="Nome">
+     <input id = "emailInput" type="email" placeholder="Email">
+                <button id = "enviarMensagem" onclick="mensagem()">Enviar Mensagem</button>
+            </div>
+
+            <textarea id = "areaMensagem" placeholder="Escreva a sua mensagem aqui..."></textarea>
+           
+        </div>
+    </div>
+
+</footer>
+    <div class="direitos">
+        <p>© 2026 Centro Académico Clinico dos Açores. Todos os direitos reservados.<br>
+            Financiando pela Universidade dos Açores<br>
+            https://fct.uac.pt/</p>
+    </div>
+
+</div>
+</body>
+
+</html>
