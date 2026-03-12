@@ -33,14 +33,26 @@ img {
     height: 300px;
 }
 
+.loading-text {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    color: #1B3577;
+    font-family: 'Kadwa', serif;
+    animation: piscar 1.5s ease-in-out infinite;
+}
+
+@keyframes piscar {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
 /* Site com opacity zero durante o loading */
 .site-escondido {
     opacity: 0;
+    transition: opacity 0.8s ease;
 }
 
 .site-visivel {
     opacity: 1;
-    transition: opacity 0.8s ease;
 }
 
 
@@ -460,13 +472,6 @@ footer input{
     font-size:0.75rem;
 }
 
-
-#d3-contentor svg {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
 /*MEDIA QUERIES TABLET*/
 
 @media (max-width: 1350px){
@@ -479,29 +484,16 @@ footer input{
     ul{
         font-size: 1rem;
     }
-
-    
     .investigacao-main{
-        flex-direction: row;
-        flex-wrap: wrap;
-        align-items: flex-start;
-        justify-content: flex-start;
-        column-gap: 4rem;
+        flex-direction: column;
     }
 
-    .investigacao-contentor{
-        flex: 0 1 calc(50% - 4rem);
-        max-width: none;
-        
+    #d3-contentor{
+        flex-direction: column;
+        width: calc(100% - 2rem);
+
+    }
     
-    }
-
-    #d3-contentor {
-    flex-basis: 100%;
-    width: 100%;
-    margin: 1rem;
-    }
-
     h1{font-size:3.2rem;}
 
     .objetivo h2, .missao h2{font-size: 3.5rem ;}
@@ -520,25 +512,18 @@ footer input{
 /*MEDIA QUERIES MOBILE*/
 
 @media (max-width: 980px){
-    .logotipo{
-    display: none;
 
+    .logotipo img{
+    width: 60px;
+    height: 70px;
     }
-
+    .logotipo{
+    width: 60px;
+    height: 70px;
+    }
     h1{
         font-size: 1.5rem;
         margin-left:2rem ;
-    }
-
-    .logotipo-mobile{
-        display: block;
-        width: 60px;
-        height: 70px;
-    }
-
-    .logotipo-mobile img{
-        width: 60px;
-        height: 70px;
     }
 
     .menu-icon{
@@ -563,15 +548,8 @@ footer input{
         display: flex;
     }
 
-    
     .investigacao-main{
         flex-direction: column;
-    }
-
-    .investigacao-contentor{
-        flex: 1 1 100%;
-        max-width: 100%;
-        margin: 0.5rem 1rem;
     }
 
     .investigacao-main p{font-size:1rem;}
@@ -594,14 +572,10 @@ footer input{
         padding: 2rem 1rem;
     }
 
-   
     #d3-contentor{
         flex-direction: column;
         width: calc(100% - 2rem);
-        padding: 0;
-       
     }
-
 
     footer .footer-container{
         flex-direction: column;

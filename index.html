@@ -22,18 +22,17 @@
     
         <button onclick="scroll_to_top()" id = "Scroll_to_top">Top</button>
 
+
+
+
 <header>
 
 <!-- CABEÇALHO -->
 
     <div class="header-container">
-        <div class="logotipo-mobile">
-            <img src="imagens/logotipo-mobile.png" alt="Logotipo CACA">
-        </div>
         <div id= "logo" class="logotipo">
-            <img src="imagens/logotipo.png" alt="Logotipo CACA">
+            <img class="imglogo" src="imagens/logotipo.png" alt="Logotipo CACA">
         </div>
-        
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="menu-icon">☰</label>
       
@@ -47,7 +46,22 @@
     </div>
 </header>
 
-
+<script>
+function replaceimagemobile(x) {
+  var imagem = document.querySelector(".imglogo")
+  console.log(imagem)
+  if (x.matches) { 
+   imagem.src="imagens/logotipo-mobile.png";
+  } else {
+   imagem.src="imagens/logotipo.png";
+  }
+}
+var x = window.matchMedia("(max-width: 980px)");
+replaceimagemobile(x);
+x.addEventListener("change", function() {
+  replaceimagemobile(x);
+});
+</script>
 
 
 
@@ -204,7 +218,7 @@
             https://fct.uac.pt/</p>
     </div>
 
-</div>
+
 </body>
 
 </html>
