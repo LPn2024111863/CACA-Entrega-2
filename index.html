@@ -46,23 +46,6 @@
     </div>
 </header>
 
-<script>
-function replaceimagemobile(x) {
-  var imagem = document.querySelector(".imglogo")
-  console.log(imagem)
-  if (x.matches) { 
-   imagem.src="imagens/logotipo-mobile.png";
-  } else {
-   imagem.src="imagens/logotipo.png";
-  }
-}
-var x = window.matchMedia("(max-width: 980px)");
-replaceimagemobile(x);
-x.addEventListener("change", function() {
-  replaceimagemobile(x);
-});
-</script>
-
 
 
 <!-- MISSÃO -->
@@ -127,25 +110,25 @@ x.addEventListener("change", function() {
 <div id="Parcerias"></div>
 <h1>Parcerias e Trabalho Desenvolvido</h1>
 
-<div class="slideshow-container">
+<div class="contentor_carrossel">
 
 <div class="mySlides fade">
-  <div class="numbertext">1 / 4</div>
+  <div class="identificador_imagem">1 / 4</div>
   <img src="imagens/uacbanner.png">
 </div>
 
 <div class="mySlides fade">
-  <div class="numbertext">2 / 4</div>
+  <div class="identificador_imagem">2 / 4</div>
   <img src="imagens/cufbanner.png">
 </div>
 
 <div class="mySlides fade">
-  <div class="numbertext">3 / 4</div>
+  <div class="identificador_imagem">3 / 4</div>
   <img src="imagens/dor_cronica.png">
 </div>
 
 <div class="mySlides fade">
-  <div class="numbertext">4 / 4</div>
+  <div class="identificador_imagem">4 / 4</div>
   <img src="imagens/hospital.png">
 </div>
 
@@ -153,10 +136,10 @@ x.addEventListener("change", function() {
 <br>
 
 <div style="text-align:center">
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span> 
-  <span class="dot"></span>
+  <span class="dot" onclick="slide_atual(1)"></span> 
+  <span class="dot" onclick="slide_atual(2)"></span> 
+  <span class="dot" onclick="slide_atual(3)"></span> 
+  <span class="dot" onclick="slide_atual(4)"></span>
 </div>
 
 <div class="conquistas">

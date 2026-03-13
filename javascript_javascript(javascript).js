@@ -1,28 +1,41 @@
-var nomeValido = true;
-var emailValido = true;
-var mensagemValida = true;
+// Carrossel de imagens simples
 
-let slideIndex = 0;
-showSlides();
+let indice_slide = 1;
+mostrar_slides(indice_slide);
 
-function showSlides() {
+function slide_atual(n) {
+  mostrar_slides(indice_slide = n);
+}
+
+function mostrar_slides(n) {
   let i;
   let slides = document.getElementsByClassName("mySlides");
   let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {
+    indice_slide = 1
+  }    
+
+  if (n < 1) {
+    indice_slide = slides.length
+  }
+
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";  
   }
-  slideIndex++;
-  if (slideIndex > slides.length) {slideIndex = 1}    
+
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(" active", "");
   }
-  slides[slideIndex-1].style.display = "block";  
-  dots[slideIndex-1].className += " active";
-  setTimeout(showSlides, 2000); // Change image every 2 seconds
+
+  slides[indice_slide-1].style.display = "block";  
+  dots[indice_slide-1].className += " active";
 }
 
+// Validação do form
 
+var nomeValido = true;
+var emailValido = true;
+var mensagemValida = true;
 
 
 function limpar(x){
@@ -106,7 +119,6 @@ function mensagem(){
     // Verificar mensagem
     mensagemValida = false;
     if (mensagem !== ""){
-        console.log(mensagem);
         mensagemValida = true;
     } 
 
@@ -162,7 +174,7 @@ function criar_grafico(){
         .domain([0, 20])
         .range([height - margin.bottom, margin.top]);
 
-    // barras inicialments com altura 0 para começar a animação 
+    // Barras inicialments com altura 0 para começar a animação 
     const bars = svg.append("g")
         .attr("fill", "#1B3577")
         .selectAll("rect")
@@ -256,10 +268,11 @@ function criar_grafico(){
                 .delay((d, i) => i * 150 + 750)
                 .attr("opacity", 1);
         });
-    };
-         
-         
+    };   
 }
+
+
+
 
 // Animação do logo CACA em 3d com three.js
 function animacao_rotativa_logo(){
@@ -311,10 +324,11 @@ window.addEventListener("resize", function () {
     criar_grafico();
 });
 
-// Get the button
+
+// Botão Scroll-to-top
+
 let mybutton = document.getElementById("Scroll_to_top");
 
-// When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction() {
@@ -325,8 +339,24 @@ function scrollFunction() {
   }
 }
 
-// When the user clicks on the button, scroll to the top of the document
 function scroll_to_top() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
+
+// Redefinir logo para media queries mobile
+
+function replaceimagemobile(x) {
+  var imagem = document.querySelector(".imglogo")
+  console.log(imagem)
+  if (x.matches) { 
+   imagem.src="imagens/logotipo-mobile.png";
+  } else {
+   imagem.src="imagens/logotipo.png";
+  }
+}
+var x = window.matchMedia("(max-width: 980px)");
+replaceimagemobile(x);
+x.addEventListener("change", function() {
+  replaceimagemobile(x);
+});
