@@ -290,7 +290,7 @@ function animacao_rotativa_logo(){
     scene.add(new THREE.AmbientLight(0xffffff, 0.8));
 
     const texture = new THREE.TextureLoader().load("imagens/logotipo-mobile.png");
-    const geometry = new THREE.BoxGeometry(2, 2, 0.15);
+    const geometry = new THREE.BoxGeometry(2, 2, 0);
     const logoMat = new THREE.MeshStandardMaterial({ map: texture });
     const sideMat = new THREE.MeshStandardMaterial({ color: 0xffffff });
     const mesh = new THREE.Mesh(geometry, [sideMat, sideMat, sideMat, sideMat, logoMat, logoMat]);
