@@ -137,6 +137,8 @@ function mensagem(){
 
 }
 
+let graficoAnimado = false;
+
 // Função para criar o gráfico de barras
 function criar_grafico(){
     const data = [
@@ -180,10 +182,10 @@ function criar_grafico(){
         .selectAll("rect")
         .data(data)
         .join("rect")
-         .attr("x", (d, i) => x(i))
-         .attr("y", y(0))
-         .attr("height", 0)
-         .attr("width", x.bandwidth());
+            .attr("x", (d, i) => x(i))
+            .attr("width", x.bandwidth())
+            .attr("y", d => graficoAnimado ? y(d.valor) : y(0))
+            .attr("height", d => graficoAnimado ? y(0) - y(d.valor) : 0);
         
 
     // Valor das barras, inicialmente invisível 
@@ -191,14 +193,14 @@ function criar_grafico(){
         .selectAll("text")
         .data(data)
         .join("text")
-         .attr("x", (d, i) => x(i) + x.bandwidth() / 2)
-         .attr("y", d => y(d.valor) - 15)
-         .attr("text-anchor", "middle")
-         .attr("font-size", "20px")
-         .attr("fill", "#1B3577")
-         .attr("font-weight", "bold")
-         .attr("opacity", 0)
-         .text(d => d.valor);
+            .attr("x", (d, i) => x(i) + x.bandwidth() / 2)
+            .attr("y", d => y(d.valor) - 15)
+            .attr("text-anchor", "middle")
+            .attr("font-size", "20px")
+            .attr("fill", "#1B3577")
+            .attr("font-weight", "bold")
+            .text(d => d.valor)
+            .attr("opacity", graficoAnimado ? 1 : 0);
 
     // Eixo do X
     const x_eixo = svg.append("g")
@@ -246,6 +248,7 @@ function criar_grafico(){
     const botoes = document.querySelectorAll(".investigacao-contentor button");
     for (const botao of botoes) {
         botao.addEventListener("click", function() {
+            graficoAnimado = true;
             // Resest nas barras
             bars.interrupt()
                 .attr("y", y(0))
