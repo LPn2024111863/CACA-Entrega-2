@@ -285,18 +285,21 @@ function animacao_rotativa_logo(){
     const renderer = new THREE.WebGLRenderer({ antialias:true, alpha: true});
     renderer.setSize(container.offsetWidth, container.offsetHeight);
     container.appendChild(renderer.domElement);
-
     scene.add(new THREE.DirectionalLight(0xffffff, 0.8));
     scene.add(new THREE.AmbientLight(0xffffff, 0.8));
-
     const texture = new THREE.TextureLoader().load("imagens/logotipo-mobile.png");
     const geometry = new THREE.BoxGeometry(2, 2, 0);
     const logoMat = new THREE.MeshStandardMaterial({ map: texture });
     const sideMat = new THREE.MeshStandardMaterial({ color: 0xffffff });
     const mesh = new THREE.Mesh(geometry, [sideMat, sideMat, sideMat, sideMat, logoMat, logoMat]);
     scene.add(mesh);
-
     camera.position.z = 3;
+
+    window.addEventListener('resize', () => {
+        camera.aspect = container.offsetWidth / container.offsetHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.offsetWidth, container.offsetHeight);
+    });
 
     function animate(){
         requestAnimationFrame(animate);
@@ -307,20 +310,33 @@ function animacao_rotativa_logo(){
     animate();
 }
 
+function hideLoadingScreen() {
+    const loadingScreen = document.getElementById('loading-screen');
+    const siteContent = document.getElementById('site-conteudo'); 
+    loadingScreen.classList.add('esconder');
+    siteContent.style.opacity = '1'; 
+    loadingScreen.addEventListener('transitionend', () => loadingScreen.remove(), { once: true });
+}
+ 
+
+let pageLoaded = false;
+let minTimeElapsed = false;
+ 
+window.addEventListener('load', () => {
+    pageLoaded = true;
+    if (minTimeElapsed) hideLoadingScreen();
+});
+ 
+setTimeout(() => {
+    minTimeElapsed = true;
+    if (pageLoaded) hideLoadingScreen();
+}, 3000);
+
+
 
 window.addEventListener("DOMContentLoaded", function() {
     criar_grafico();
     animacao_rotativa_logo();
-
-    const loadingScreen = document.getElementById("loading-screen");
-    const siteConteudo = document.getElementById("site-conteudo");
-    // 3 segundos de loading screen , desativanto a animação e em seguida revelando o conteudo do  site
-    setTimeout(function(){
-        loadingScreen.classList.add("esconder");
-        siteConteudo.classList.remove("site-escondido");
-        siteConteudo.classList.add("site-visivel");
-
-    },3000);
 });
 
 window.addEventListener("resize", function () {
