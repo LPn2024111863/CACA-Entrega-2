@@ -1,14 +1,15 @@
 let nomeValido = true;
 let emailValido = true;
 let mensagemValida = true;
-
+/**
+ * Função que verifica os campos do formulário
+ */
 const mensagem = () => {
     const nomeInput = document.getElementById("nomeInput");
     const nome = nomeInput.value.trim();
     const emailInput = document.getElementById("emailInput");
     const email = emailInput.value.trim();
     const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-    const tiposEmail = ["@hotmail.com","@gmail.com","@uac.pt"];
     const areaMensagem = document.getElementById("areaMensagem");
     const mensagem = areaMensagem.value.trim();
     let erro = false;
