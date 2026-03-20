@@ -3,7 +3,6 @@ let grafico;
 window.addEventListener("DOMContentLoaded", () => {
     new AnimacaoRotativaLogo();
     grafico = new CriarGrafico(); 
-    grafico.draw();
 });
 
 window.updateGraph = (a,b,c,d,e) => {
@@ -20,7 +19,7 @@ const hideLoadingScreen = () => {
     const siteContent = document.getElementById('site-conteudo'); 
     loadingScreen.style.opacity = '0';
     siteContent.style.opacity = '1'; 
-    loadingScreen.addEventListener('transitionend', () => loadingScreen.remove(), { once: true });
+    loadingScreen.addEventListener('transitionend', () => loadingScreen.remove());
 }
  
 
