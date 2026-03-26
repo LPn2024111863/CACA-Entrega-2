@@ -491,15 +491,14 @@ footer input{
         flex-direction: row;
         flex-wrap: wrap;
         align-items: flex-start;
-        justify-content: flex-start;
-        column-gap: 4rem;
+        justify-content: center;
     }
 
     .investigacao-contentor{
-        flex: 0 1 calc(50% - 4rem);
+        flex: 0 1 calc(50% - 2rem);
         max-width: none;
-        
-    
+        margin-top: 0.7rem;
+        margin-bottom: 0.2rem;
     }
 
     #threejs-logo-contentor {
