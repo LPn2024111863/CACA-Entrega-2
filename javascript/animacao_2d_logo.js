@@ -2,7 +2,10 @@
  * Classe responsável por criar a animação rotativa do logotipo
  * usando a biblioteca Three.js.
  */
-class AnimacaoRotativaLogo {
+export default class AnimacaoRotativaLogo {
+    /**
+     * Construtor da classe. Inicializa a cena, câmera, luzes e o loop de renderização.
+     */
     constructor() {
         this.container = document.getElementById("threejs-logo-contentor");
         this.scene = new THREE.Scene();
@@ -15,7 +18,8 @@ class AnimacaoRotativaLogo {
     }
 
     /**
-     * Função que configura o aspect ratio e a posição da câmera
+     * Configura o aspect ratio e a posição da câmera.
+     * @returns {void}
      */
     setupCamera = () => {
         const aspect = this.container.offsetWidth / this.container.offsetHeight;
@@ -24,7 +28,8 @@ class AnimacaoRotativaLogo {
     }
     
     /**
-     * Inicializa o renderizador WebGL e o adiciona ao container
+     * Inicializa o renderizador WebGL e anexa-o ao container.
+     * @returns {void}
      */
     setupRenderer = () => {
         this.renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -33,7 +38,8 @@ class AnimacaoRotativaLogo {
     }
 
     /**
-     * Função que cria a geometria do logotipo
+     * Cria a geometria, aplica os materiais/texturas e adiciona à cena.
+     * @returns {void}
      */
     setupMesh = () => {
         const texture = new THREE.TextureLoader().load("imagens/logotipo-mobile.png");
@@ -44,13 +50,18 @@ class AnimacaoRotativaLogo {
         this.scene.add(this.mesh);
     }
 
-    setupLights = () =>{
+    /**
+     * Configura a iluminação direcional e ambiente da cena 3D.
+     * @returns {void}
+     */
+    setupLights = () => {
         this.scene.add(new THREE.DirectionalLight(0xffffff, 0.8));
         this.scene.add(new THREE.AmbientLight(0xffffff, 0.8));
     }
+
     /**
-     * Permite que a animação se ajuste ao redimensionar a janela, 
-     * atualizando o aspect ratio da câmera e o tamanho do renderizador
+     * Permite que a animação se ajuste responsivamente ao redimensionar a janela.
+     * @returns {void}
      */
     addResizeListener  = () => {
         window.addEventListener('resize', () => {
@@ -61,15 +72,12 @@ class AnimacaoRotativaLogo {
     }
 
     /**
-     * Animação que faz o logotipo rodar continuamente em torno do eixo Y
+     * Ciclo de animação recursivo que faz o logotipo rodar continuamente.
+     * @returns {void}
      */ 
     animate = () => {
         requestAnimationFrame(() => this.animate());
         this.mesh.rotation.y += 0.05;
         this.renderer.render(this.scene, this.camera);
     }
-  
-
 }
-
-
