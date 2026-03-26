@@ -1,19 +1,22 @@
+import AnimacaoRotativaLogo from './animacao_2d_logo.js';
+import CriarGrafico from './grafico_d3.js';
+
 let grafico;
+let pageLoaded = false;
+let minTimeElapsed = false;
+
 
 window.addEventListener("DOMContentLoaded", () => {
     new AnimacaoRotativaLogo();
     grafico = new CriarGrafico(); 
 });
 
-window.updateGraph = (a,b,c,d,e) => {
+window.updateGraph = (a, b, c, d, e) => {
     if (grafico) {
-        grafico.changeData(a,b,c,d,e);
+        grafico.changeData(a, b, c, d, e);
     }   
 };
 
-/**
- * Função para ocultar a tela de carregamento e  exibir o conteúdo do site com uma transição
- */
 const hideLoadingScreen = () => {
     const loadingScreen = document.getElementById('loading-screen');
     const siteContent = document.getElementById('site-conteudo'); 
@@ -21,10 +24,6 @@ const hideLoadingScreen = () => {
     siteContent.style.opacity = '1'; 
     loadingScreen.addEventListener('transitionend', () => loadingScreen.remove());
 }
- 
-
-let pageLoaded = false;
-let minTimeElapsed = false;
  
 window.addEventListener('load', () => {
     pageLoaded = true;
@@ -37,6 +36,3 @@ setTimeout(() => {
         hideLoadingScreen();
     }
 }, 3000);
-
-
-
