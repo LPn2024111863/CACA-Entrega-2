@@ -8,7 +8,7 @@ Miguel Braz 2024111736
 
 * Organização da documentação
 -De acordo com o pedido pelos docentes, o ficheiro javascript foi colocado numa pasta "javascript", na qual as funções e classes para cada funcionalidade estão separados por ficheiro.
-
+    
 -Tal como o javascript, o css foi colocado numa pasta isolada para permitir a separação individual de cada componente referente à landing page.
 
 * Otimização do Javascript
