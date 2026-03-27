@@ -3,6 +3,7 @@ let emailValido = true;
 let mensagemValida = true;
 /**
  * Função que verifica os campos do formulário
+ * @returns {void}
  */
 const mensagem = () => {
     const nomeInput = document.getElementById("nomeInput");
@@ -77,7 +78,12 @@ const mensagem = () => {
     }
 }
 
-
+/**
+ * Esta função permite limpar e retificar para a cor original após
+ * o utilizador tentar alterar ou interagir com o campo do form
+ * @param {String} x: valor do campo clicado 
+ * @returns {void}
+ */
 const limpar = (x) => {
     if(x==="nome" && !nomeValido){
         nomeInput = document.getElementById("nomeInput")

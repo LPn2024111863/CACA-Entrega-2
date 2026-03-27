@@ -21,20 +21,21 @@ export default class CriarGrafico {
 
     /**
      * Atualiza os dados do gráfico e as transições de animação.
-     * @param {number} a - Valor para "Investigadores".
-     * @param {number} b - Valor para "Projetos".
-     * @param {number} c - Valor para "Concursos".
-     * @param {number} d - Valor para "Publicações".
-     * @param {number} e - Valor para "Bolsas".
+     * @param {number} valor_investigadores - Valor para "Investigadores".
+     * @param {number} valor_projeto - Valor para "Projetos".
+     * @param {number} valor_concurso - Valor para "Concursos".
+     * @param {number} valor_publicacoes - Valor para "Publicações".
+     * @param {number} valor_bolsas - Valor para "Bolsas".
      * @returns {void}
      */
-    changeData = (a, b, c, d, e) => {
+    changeData = (valor_investigadores, valor_projeto, valor_concurso,
+        valor_publicacoes, valor_bolsas) => {
         this.data = [
-            {legenda: "Investigadores", valor: a},
-            {legenda: "Projetos", valor: b},
-            {legenda: "Concursos", valor: c},
-            {legenda: "Publicações", valor: d},
-            {legenda: "Bolsas", valor: e}
+            {legenda: "Investigadores", valor: valor_investigadores},
+            {legenda: "Projetos", valor: valor_projeto},
+            {legenda: "Concursos", valor: valor_concurso},
+            {legenda: "Publicações", valor: valor_publicacoes},
+            {legenda: "Bolsas", valor: valor_bolsas}
         ];
         this.graficoAnimado = true;
         this.draw();

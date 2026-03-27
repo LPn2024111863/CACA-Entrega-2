@@ -11,9 +11,11 @@ window.addEventListener("DOMContentLoaded", () => {
     grafico = new CriarGrafico(); 
 });
 
-window.updateGraph = (a, b, c, d, e) => {
+window.updateGraph = (valor_investigadores, valor_projeto, valor_concurso,
+        valor_publicacoes, valor_bolsas) => {
     if (grafico) {
-        grafico.changeData(a, b, c, d, e);
+        grafico.changeData(valor_investigadores, valor_projeto, valor_concurso,
+        valor_publicacoes, valor_bolsas);
     }   
 };
 
